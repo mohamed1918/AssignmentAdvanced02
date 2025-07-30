@@ -1,4 +1,6 @@
-﻿namespace AssignmentAdvanced02
+﻿using System.Collections;
+
+namespace AssignmentAdvanced02
 {
     internal class Program
     {
@@ -60,8 +62,15 @@
             #endregion
 
             #region Q5
-            int[] arr1 = { 1, 2, 2, 3, 4, 4, 5 };
-            Console.WriteLine(string.Join(", ", arr1.Distinct()));
+            //int[] arr1 = { 1, 2, 2, 3, 4, 4, 5 };
+            //Console.WriteLine(string.Join(", ", arr1.Distinct()));
+            #endregion
+
+            #region Q6
+            ArrayList arr1 = new ArrayList() { 1, 2, 3, 4, 5, 6 };
+            for (int i = arr1.Count - 1; i >= 0; i--)
+                if ((int)arr1[i] % 2 != 0) arr1.RemoveAt(i);
+            Console.WriteLine(string.Join(", ", arr1.ToArray()));
             #endregion
         }
     }
