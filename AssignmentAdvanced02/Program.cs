@@ -67,10 +67,19 @@ namespace AssignmentAdvanced02
             #endregion
 
             #region Q6
-            ArrayList arr1 = new ArrayList() { 1, 2, 3, 4, 5, 6 };
-            for (int i = arr1.Count - 1; i >= 0; i--)
-                if ((int)arr1[i] % 2 != 0) arr1.RemoveAt(i);
-            Console.WriteLine(string.Join(", ", arr1.ToArray()));
+            //ArrayList arr1 = new ArrayList() { 1, 2, 3, 4, 5, 6 };
+            //for (int i = arr1.Count - 1; i >= 0; i--)
+            //    if ((int)arr1[i] % 2 != 0) arr1.RemoveAt(i);
+            //Console.WriteLine(string.Join(", ", arr1.ToArray()));
+            #endregion
+
+            #region Q7
+            Queue queue1 = new Queue();
+            queue1.Enqueue(1);
+            queue1.Enqueue("Apple");
+            queue1.Enqueue(5.28);
+            foreach (var item in queue1)
+                Console.WriteLine(item);
             #endregion
         }
     }
