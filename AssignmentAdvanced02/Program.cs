@@ -36,27 +36,32 @@
             #endregion
 
             #region Q4
-            string input = "[()]{}";
-            //string input = "[()]{";
-            Stack<char> stack1 = new Stack<char>();
-            Dictionary<char, char> pairs = new Dictionary<char, char>
-            {
-                { ')', '(' }, { ']', '[' }, { '}', '{' }
-            };
-            bool balanced = true;
-            foreach (char c in input)
-            {
-                if ("([{".Contains(c)) stack1.Push(c);
-                else if (")]}".Contains(c))
-                {
-                    if (stack1.Count == 0 || stack1.Pop() != pairs[c])
-                    {
-                        balanced = false;
-                        break;
-                    }
-                }
-            }
-            Console.WriteLine(balanced && stack1.Count == 0 ? "Balanced" : "Not Balanced");
+            //string input = "[()]{}";
+            ////string input = "[()]{";
+            //Stack<char> stack1 = new Stack<char>();
+            //Dictionary<char, char> pairs = new Dictionary<char, char>
+            //{
+            //    { ')', '(' }, { ']', '[' }, { '}', '{' }
+            //};
+            //bool balanced = true;
+            //foreach (char c in input)
+            //{
+            //    if ("([{".Contains(c)) stack1.Push(c);
+            //    else if (")]}".Contains(c))
+            //    {
+            //        if (stack1.Count == 0 || stack1.Pop() != pairs[c])
+            //        {
+            //            balanced = false;
+            //            break;
+            //        }
+            //    }
+            //}
+            //Console.WriteLine(balanced && stack1.Count == 0 ? "Balanced" : "Not Balanced");
+            #endregion
+
+            #region Q5
+            int[] arr1 = { 1, 2, 2, 3, 4, 4, 5 };
+            Console.WriteLine(string.Join(", ", arr1.Distinct()));
             #endregion
         }
     }
