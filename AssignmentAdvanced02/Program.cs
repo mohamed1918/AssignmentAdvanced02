@@ -83,23 +83,39 @@ namespace AssignmentAdvanced02
             #endregion
 
             #region Q8
-            Stack<int> stack1 = new Stack<int>();
-            for (int i = 1; i <= 10; i++) stack1.Push(i);
-            int target = 11;
-            int count = 0;
-            bool found = false;
-            foreach (var item in stack1)
+            //Stack<int> stack1 = new Stack<int>();
+            //for (int i = 1; i <= 10; i++) stack1.Push(i);
+            //int target = 11;
+            //int count = 0;
+            //bool found = false;
+            //foreach (var item in stack1)
+            //{
+            //    count++;
+            //    if (item == target)
+            //    {
+            //        found = true;
+            //        break;
+            //    }
+            //}
+            //Console.WriteLine(found
+            //    ? $"Target {target} was found successfully and the count = {count}"
+            //    : $"Target {target} was not found");
+            #endregion
+
+            #region Q9
+            int[] arr1 = { 1, 2, 3, 4, 4 };
+            int[] arr2 = { 10, 4, 4 };
+            List<int> result = new List<int>();
+            var dict = arr1.GroupBy(x => x).ToDictionary(g => g.Key, g => g.Count());
+            foreach (int num in arr2)
             {
-                count++;
-                if (item == target)
+                if (dict.ContainsKey(num) && dict[num] > 0)
                 {
-                    found = true;
-                    break;
+                    result.Add(num);
+                    dict[num]--;
                 }
             }
-            Console.WriteLine(found
-                ? $"Target {target} was found successfully and the count = {count}"
-                : $"Target {target} was not found");
+            Console.WriteLine("[" + string.Join(", ", result) + "]");
             #endregion
         }
     }
