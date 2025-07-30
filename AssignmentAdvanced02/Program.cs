@@ -119,28 +119,39 @@ namespace AssignmentAdvanced02
             #endregion
 
             #region Q10
-            int[] arr = { 1, 2, 3, 7, 5 };
-            int target = 12;
-            bool found = false;
-            for (int i = 0; i < arr.Length; i++)
-            {
-                int sum = 0;
-                List<int> subList = new List<int>();
-                for (int j = i; j < arr.Length; j++)
-                {
-                    sum += arr[j];
-                    subList.Add(arr[j]);
-                    if (sum == target)
-                    {
-                        Console.WriteLine("[" + string.Join(", ", subList) + "]");
-                        found = true;
-                        break;
-                    }
-                }
-                if (found) break;
-            }
-            if (!found) Console.WriteLine("No sublist found");
+            //int[] arr = { 1, 2, 3, 7, 5 };
+            //int target = 12;
+            //bool found = false;
+            //for (int i = 0; i < arr.Length; i++)
+            //{
+            //    int sum = 0;
+            //    List<int> subList = new List<int>();
+            //    for (int j = i; j < arr.Length; j++)
+            //    {
+            //        sum += arr[j];
+            //        subList.Add(arr[j]);
+            //        if (sum == target)
+            //        {
+            //            Console.WriteLine("[" + string.Join(", ", subList) + "]");
+            //            found = true;
+            //            break;
+            //        }
+            //    }
+            //    if (found) break;
+            //}
+            //if (!found) Console.WriteLine("No sublist found");
             #endregion
+
+            #region Q11
+            Queue<int> q = new Queue<int>(new[] { 1, 2, 3, 4, 5 });
+            int K = 3;
+            Stack<int> s = new Stack<int>();
+            for (int i = 0; i < K; i++) s.Push(q.Dequeue());
+            while (s.Count > 0) q.Enqueue(s.Pop());
+            for (int i = 0; i < q.Count - K; i++) q.Enqueue(q.Dequeue());
+            Console.WriteLine("[" + string.Join(", ", q) + "]");
+            #endregion
+
         }
     }
 }
