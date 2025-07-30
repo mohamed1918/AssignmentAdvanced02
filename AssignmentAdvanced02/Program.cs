@@ -74,12 +74,32 @@ namespace AssignmentAdvanced02
             #endregion
 
             #region Q7
-            Queue queue1 = new Queue();
-            queue1.Enqueue(1);
-            queue1.Enqueue("Apple");
-            queue1.Enqueue(5.28);
-            foreach (var item in queue1)
-                Console.WriteLine(item);
+            //Queue queue1 = new Queue();
+            //queue1.Enqueue(1);
+            //queue1.Enqueue("Apple");
+            //queue1.Enqueue(5.28);
+            //foreach (var item in queue1)
+            //    Console.WriteLine(item);
+            #endregion
+
+            #region Q8
+            Stack<int> stack1 = new Stack<int>();
+            for (int i = 1; i <= 10; i++) stack1.Push(i);
+            int target = 11;
+            int count = 0;
+            bool found = false;
+            foreach (var item in stack1)
+            {
+                count++;
+                if (item == target)
+                {
+                    found = true;
+                    break;
+                }
+            }
+            Console.WriteLine(found
+                ? $"Target {target} was found successfully and the count = {count}"
+                : $"Target {target} was not found");
             #endregion
         }
     }
