@@ -103,19 +103,43 @@ namespace AssignmentAdvanced02
             #endregion
 
             #region Q9
-            int[] arr1 = { 1, 2, 3, 4, 4 };
-            int[] arr2 = { 10, 4, 4 };
-            List<int> result = new List<int>();
-            var dict = arr1.GroupBy(x => x).ToDictionary(g => g.Key, g => g.Count());
-            foreach (int num in arr2)
+            //int[] arr1 = { 1, 2, 3, 4, 4 };
+            //int[] arr2 = { 10, 4, 4 };
+            //List<int> result = new List<int>();
+            //var dict = arr1.GroupBy(x => x).ToDictionary(g => g.Key, g => g.Count());
+            //foreach (int num in arr2)
+            //{
+            //    if (dict.ContainsKey(num) && dict[num] > 0)
+            //    {
+            //        result.Add(num);
+            //        dict[num]--;
+            //    }
+            //}
+            //Console.WriteLine("[" + string.Join(", ", result) + "]");
+            #endregion
+
+            #region Q10
+            int[] arr = { 1, 2, 3, 7, 5 };
+            int target = 12;
+            bool found = false;
+            for (int i = 0; i < arr.Length; i++)
             {
-                if (dict.ContainsKey(num) && dict[num] > 0)
+                int sum = 0;
+                List<int> subList = new List<int>();
+                for (int j = i; j < arr.Length; j++)
                 {
-                    result.Add(num);
-                    dict[num]--;
+                    sum += arr[j];
+                    subList.Add(arr[j]);
+                    if (sum == target)
+                    {
+                        Console.WriteLine("[" + string.Join(", ", subList) + "]");
+                        found = true;
+                        break;
+                    }
                 }
+                if (found) break;
             }
-            Console.WriteLine("[" + string.Join(", ", result) + "]");
+            if (!found) Console.WriteLine("No sublist found");
             #endregion
         }
     }
